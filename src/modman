@@ -1,0 +1,7 @@
+app/etc/modules/Magentron_LocaliserDE.xml                       app/etc/modules/Magentron_LocaliserDE.xml
+app/code/community/Magentron/LocaliserDE/                       app/code/community/Magentron/LocaliserDE/
+app/locale/de/Magentron_Localiser_DE.csv                      app/locale/de/Magentron_Localiser_DE.csv
+app/locale/de/template/localiser_de/                          app/locale/de/template/localiser_de/
+app/design/frontend/base/default/layout/localiser_de.xml	        app/design/frontend/base/default/layout/localiser_de.xml
+app/design/frontend/base/default/template/localiser_de/	        app/design/frontend/base/default/template/localiser_de/
+skin/frontend/base/default/css/localiser_de/                     skin/frontend/base/default/css/localiser_de/

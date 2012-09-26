@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * This file is part of the MDP 2012 Hackathon.
+ *
+ * Mdp2012_Localiser is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * PHP version 5
+ *
+ * @category  Mdp2012
+ * @package   Mdp2012_Localiser_DE
+ * @author    Mdp2012 Team <team@magento-developer-paradise.com>
+ * @copyright 2012 Mdp2012 Team (http://gitorious.mdp/mdp_localiser). All rights served.
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ * @version   $Id:$
+ * @since     0.1.0
+ */
+ -->
+<config>
+    <modules>
+        <Magentron_LocaliserDE>
+            <version>1.1.2</version>
+        </Magentron_LocaliserDE>
+    </modules>
+    <global>
+        <resources>
+            <localiser_setup>
+                <setup>
+                    <module>Magentron_LocaliserDE</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </localiser_setup>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <localiser>
+                    <file>localiser_de.xml</file>
+                </localiser>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magentron_Localiser_DE>
+                    <files>
+                        <localiser>Magentron_Localiser_DE.csv</localiser>
+                    </files>
+                </Magentron_Localiser_DE>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Magentron_Localiser_DE>
+                    <files>
+                        <localiser>Magentron_Localiser_DE.csv</localiser>
+                    </files>
+                </Magentron_Localiser_DE>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <catalog>
+            <price>
+                <display_block_below_price>1</display_block_below_price>
+                <cms_page_shipping>lieferung</cms_page_shipping>
+            </price>
+        </catalog>
+        <general>
+            <imprint>
+                <shop_name>Beispielshop</shop_name>
+                <company_first>Musterfirma GmbH</company_first>
+                <zip>12345</zip>
+                <street>Musterstr. 1</street>
+                <city>Musterstadt</city>
+                <email>info@musterdomain.de</email>
+            </imprint>
+        </general>
+        <checkout>
+            <options>
+                <additional_information><![CDATA[Zusätzlich können noch Kosten oder Steuern anfallen, die nicht über uns abgeführt bzw. von uns in Rechnung gestellt werden.]]></additional_information>
+            </options>
+        </checkout>
+        <customer>
+            <address_templates>
+                <text><![CDATA[
+{{depend company}}{{var company}}
+{{/depend}}{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}
+{{if street1}}{{var street1}}
+{{/if}}{{depend street2}}{{var street2}}
+{{/depend}}{{depend street3}}{{var street3}}
+{{/depend}}{{depend street4}}{{var street4}}
+{{/depend}}{{if postcode}}{{var postcode}} {{/if}}{{if city}}{{var city}}{{/if}}
+{{var country}}
+Tel: {{var telephone}}
+{{depend fax}}Fax: {{var fax}}
+{{/depend}}
+                ]]></text>
+                <oneline><![CDATA[{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}, {{var street}}, {{var postcode}} {{var city}}, {{var country}}]]></oneline>
+                <html><![CDATA[
+{{depend company}}{{var company}}<br />{{/depend}}
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}<br/>
+{{if street1}}{{var street1}}<br />{{/if}}
+{{depend street2}}{{var street2}}<br />{{/depend}}
+{{depend street3}}{{var street3}}<br />{{/depend}}
+{{depend street4}}{{var street4}}<br />{{/depend}}
+{{if postcode}}{{var postcode}} {{/if}}{{if city}}{{var city}}{{/if}}<br/>
+{{var country}}<br/>
+{{depend telephone}}Tel: {{var telephone}}{{/depend}}
+{{depend fax}}<br/>Fax: {{var fax}}{{/depend}}
+                ]]></html>
+                <pdf><![CDATA[
+{{depend company}}{{var company}}|{{/depend}}
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}|
+{{if street1}}{{var street1}}
+{{/if}}
+{{depend street2}}{{var street2}}|{{/depend}}
+{{depend street3}}{{var street3}}|{{/depend}}
+{{depend street4}}{{var street4}}|{{/depend}}
+{{if postcode}}{{var postcode}} {{/if}}{{if city}}{{var city}}{{/if}}|
+{{var country}}|
+{{depend telephone}}Tel: {{var telephone}}{{/depend}}|
+{{depend fax}}<br/>Fax: {{var fax}}{{/depend}}|
+                ]]></pdf>
+                <js_template template="title" module="customer">
+                    <title>Javascript Template</title>
+                    <defaultFormat><![CDATA[#{company}<br/>#{prefix} #{firstname} #{middlename} #{lastname} #{suffix}<br/>#{street0}<br/>#{street1}<br/>#{street2}<br/>#{street3}<br/>#{postcode} #{city}<br/>#{country_id}<br/>Tel: #{telephone}<br/>Fax: #{fax}]]>
+                    </defaultFormat>
+                </js_template>
+            </address_templates>
+        </customer>
+    </default>
+</config>
